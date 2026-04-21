@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreatLakes Feeds — Nourishing Communities, Empowering Farmers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-gold: #d4a723;
+      --color-gold-rgb: 212,167,35;
+      --color-gold-dim: #a87d16;
+      --color-teal: #8cbbc0;
+      --color-teal-rgb: 140,187,192;
+      --color-soft-gold: #dad18e;
+      --color-soft-gold-rgb: 218,209,142;
+      --color-royal-blue: #2128c2;
+      --color-royal-blue-rgb: 33,40,194;
+      --color-dark: #080c07;
+      --color-dark-rgb: 8,12,7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: var(--color-dark);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
+
+    /* Noise texture for dark sections */
+    .noise::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 2;
+    }
+    .noise { position: relative; isolation: isolate; }
+
+    /* Pill label */
+    .label-pill {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      background: rgba(var(--color-gold-rgb),0.1);
+      border: 1px solid rgba(var(--color-gold-rgb),0.28);
+      color: var(--color-gold-dim);
+      border-radius: 100px;
+      font-family: 'Inter', sans-serif; font-weight: 600;
+      font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.28rem 0.85rem;
+    }
+    .label-pill-light {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* Nav link */
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-weight: 500; font-size: 0.88rem;
+      color: rgba(var(--color-dark-rgb),0.7);
+      text-decoration: none; letter-spacing: 0.01em;
+      transition: color 0.2s ease; position: relative;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -3px; left: 0; right: 100%;
+      height: 2px; background: var(--color-gold); transition: right 0.25s ease;
+    }
+    .nav-link:hover { color: var(--color-gold); }
+    .nav-link:hover::after { right: 0; }
+
+    /* Buttons */
+    .btn-gold {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: var(--color-gold); color: var(--color-dark);
+      font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.9rem;
+      padding: 0.7rem 1.6rem; border-radius: 100px; text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease, background 0.18s ease;
+      box-shadow: 0 3px 14px rgba(var(--color-gold-rgb),0.35);
+    }
+    .btn-gold:hover { transform: scale(1.05); background: var(--color-soft-gold); box-shadow: 0 5px 22px rgba(var(--color-gold-rgb),0.5); }
+    .btn-gold:active { transform: scale(0.97); }
+    .btn-gold:focus-visible { outline: 3px solid var(--color-gold); outline-offset: 3px; }
+
+    .btn-ghost-light {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: transparent; color: rgba(255,255,255,0.85);
+      font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.9rem;
+      padding: 0.68rem 1.6rem; border-radius: 100px; text-decoration: none;
+      border: 1.5px solid rgba(255,255,255,0.3); letter-spacing: 0.02em;
+      transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), background 0.18s ease, border-color 0.18s ease;
+    }
+    .btn-ghost-light:hover { transform: scale(1.04); background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.55); }
+    .btn-ghost-light:active { transform: scale(0.97); }
+
+    /* Card hover */
+    .card-lift {
+      transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease;
+    }
+    .card-lift:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(var(--color-gold-rgb),0.16), 0 6px 20px rgba(var(--color-dark-rgb),0.08);
+    }
+
+    .gold-line {
+      text-decoration: underline;
+      text-decoration-color: var(--color-gold);
+      text-underline-offset: 6px;
+      text-decoration-thickness: 3px;
+    }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: rgba(var(--color-soft-gold-rgb),0.2); }
+    ::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 3px; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<header id="top" style="
+  position: sticky; top: 0; z-index: 50;
+  background: #fff;
+  border-bottom: 1px solid rgba(var(--color-dark-rgb),0.07);
+  box-shadow: 0 1px 14px rgba(var(--color-dark-rgb),0.06);
+">
+  <div style="max-width:1200px;margin:0 auto;padding:0 1.5rem;height:76px;display:flex;align-items:center;justify-content:space-between;gap:2rem;">
+
+    <a href="#top" style="display:flex;align-items:center;gap:0.85rem;text-decoration:none;flex-shrink:0;">
+      <img src="brand_assets/ Greatlakes Feeds logo.png" alt="GreatLakes Feeds" style="height:58px;width:auto;">
+      <div style="line-height:1.1;">
+        <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:var(--color-dark);letter-spacing:0.18em;text-transform:uppercase;">GREATLAKES</div>
+        <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:0.58rem;color:var(--color-gold);letter-spacing:0.22em;text-transform:uppercase;">FEEDS</div>
+      </div>
+    </a>
+
+    <nav style="display:flex;gap:2.2rem;align-items:center;flex:1;justify-content:center;" class="main-nav">
+      <a href="#top" class="nav-link">Home</a>
+      <a href="#products" class="nav-link">Products</a>
+      <a href="#about" class="nav-link">About Us</a>
+      <a href="#values" class="nav-link">Our Values</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <a href="#donate" class="btn-gold" style="flex-shrink:0;font-size:0.82rem;padding:0.55rem 1.25rem;">
+      <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      Donate
+    </a>
+  </div>
+</header>
+<style>@media(max-width:860px){.main-nav{display:none!important}}</style>
+
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="noise" style="
+  position:relative; overflow:hidden;
+  background:
+    radial-gradient(ellipse 70% 80% at 80% 20%, rgba(var(--color-gold-rgb),0.28) 0%, transparent 52%),
+    radial-gradient(ellipse 55% 60% at 15% 85%, rgba(var(--color-teal-rgb),0.2) 0%, transparent 52%),
+    radial-gradient(ellipse 90% 90% at 50% 50%, rgba(var(--color-royal-blue-rgb),0.08) 0%, transparent 65%),
+    var(--color-dark);
+  padding: 90px 1.5rem 0;
+  min-height: 640px;
+  display: flex; align-items: center;
+">
+  <div style="position:absolute;top:50%;right:6%;transform:translateY(-50%);width:500px;height:500px;border-radius:50%;border:1px solid rgba(var(--color-gold-rgb),0.08);pointer-events:none;"></div>
+  <div style="position:absolute;top:50%;right:6%;transform:translateY(-50%);width:370px;height:370px;border-radius:50%;border:1px solid rgba(var(--color-gold-rgb),0.05);pointer-events:none;"></div>
+
+  <div style="max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:3;" class="hero-grid">
+
+    <div style="padding-bottom:90px;">
+      <div class="label-pill label-pill-light" style="margin-bottom:1.5rem;">East Africa · Lake Victoria Region</div>
+      <h1 style="
+        font-weight:800; font-size:clamp(2.6rem,5vw,4rem);
+        line-height:1.1; letter-spacing:-0.02em; color:#fff;
+        margin-bottom:1.4rem;
+      ">
+        Nourishing<br>
+        <span style="color:var(--color-gold);">Communities,</span><br>
+        Empowering<br>Farmers
+      </h1>
+      <p style="font-size:1rem;line-height:1.85;color:rgba(255,255,255,0.65);max-width:440px;margin-bottom:2.2rem;">
+        High-quality fish, poultry, and livestock feeds crafted from 100% locally sourced ingredients — strengthening livelihoods around Lake Victoria since day one.
+      </p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+        <a href="#products" class="btn-gold">
+          Explore Our Feeds
+          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#about" class="btn-ghost-light">Our Mission</a>
+      </div>
+    </div>
+
+    <div style="position:relative;display:flex;justify-content:center;align-items:flex-end;height:500px;">
+      <div style="width:360px;height:440px;border-radius:200px 200px 0 0;overflow:hidden;position:relative;box-shadow:0 24px 70px rgba(var(--color-dark-rgb),0.5);">
+        <img src="GF9.jpg" alt="GreatLakes Feeds farmer" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(var(--color-dark-rgb),0.4) 100%);pointer-events:none;"></div>
+      </div>
+      <div style="position:absolute;bottom:0;right:10%;background:var(--color-gold);color:var(--color-dark);border-radius:16px;padding:1rem 1.3rem;box-shadow:0 8px 28px rgba(var(--color-gold-rgb),0.45);">
+        <div style="font-family:'Playfair Display',serif;font-weight:800;font-size:1.4rem;line-height:1;">100%</div>
+        <div style="font-size:0.68rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px;">Locally Sourced</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wave divider -->
+  <div style="position:absolute;bottom:-1px;left:0;right:0;z-index:4;line-height:0;">
+    <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;height:70px;display:block;">
+      <path d="M0,70 L0,40 C200,40 250,5 480,5 C700,5 750,45 960,45 C1150,45 1220,12 1440,20 L1440,70 Z" fill="#fff"/>
+    </svg>
+  </div>
+</section>
+
+<!-- Stat bar -->
+<div style="background:#fff;padding:1.5rem 1.5rem 3rem;">
+  <div style="max-width:780px;margin:0 auto;display:flex;justify-content:center;gap:0;border-radius:18px;overflow:hidden;box-shadow:0 4px 28px rgba(var(--color-dark-rgb),0.07);border:1px solid rgba(var(--color-soft-gold-rgb),0.4);" class="stat-bar">
+    <div style="flex:1;padding:1.4rem 1rem;text-align:center;border-right:1px solid rgba(var(--color-soft-gold-rgb),0.5);">
+      <div style="font-family:'Playfair Display',serif;font-weight:800;font-size:1.5rem;color:var(--color-gold);line-height:1;">3+</div>
+      <div style="font-size:0.72rem;color:rgba(var(--color-dark-rgb),0.55);font-weight:500;margin-top:0.2rem;letter-spacing:0.04em;">Feed Lines</div>
+    </div>
+    <div style="flex:1;padding:1.4rem 1rem;text-align:center;border-right:1px solid rgba(var(--color-soft-gold-rgb),0.5);">
+      <div style="font-family:'Playfair Display',serif;font-weight:800;font-size:1.5rem;color:var(--color-gold);line-height:1;">100%</div>
+      <div style="font-size:0.72rem;color:rgba(var(--color-dark-rgb),0.55);font-weight:500;margin-top:0.2rem;letter-spacing:0.04em;">Locally Sourced</div>
+    </div>
+    <div style="flex:1;padding:1.4rem 1rem;text-align:center;">
+      <div style="font-family:'Playfair Display',serif;font-weight:800;font-size:1.5rem;color:var(--color-gold);line-height:1;">Lake Victoria</div>
+      <div style="font-size:0.72rem;color:rgba(var(--color-dark-rgb),0.55);font-weight:500;margin-top:0.2rem;letter-spacing:0.04em;">Our Region</div>
+    </div>
+  </div>
+</div>
+<style>
+  @media(max-width:768px){.hero-grid{grid-template-columns:1fr!important}.hero-grid>div:last-child{display:none!important}}
+  @media(max-width:560px){.stat-bar{flex-direction:column!important}}
+</style>
+
+
+<!-- ═══════════════ PRODUCTS ═══════════════ -->
+<section id="products" style="background:#fff;padding:80px 1.5rem 100px;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <div class="label-pill" style="margin-bottom:1rem;">What We Produce</div>
+      <h2 style="font-weight:800;font-size:clamp(2rem,4vw,2.8rem);letter-spacing:-0.02em;color:var(--color-dark);line-height:1.1;margin-bottom:1rem;">
+        Our <span class="gold-line">Feed Range</span>
+      </h2>
+      <p style="font-size:1rem;line-height:1.8;color:rgba(var(--color-dark-rgb),0.6);max-width:500px;margin:0 auto;">
+        Every bag leaves our facility quality-checked and vet-approved — designed specifically for East African farms.
+      </p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;" class="products-grid">
+
+      <!-- Fish Feed -->
+      <div class="card-lift" style="border-radius:22px;overflow:hidden;border:1px solid rgba(var(--color-dark-rgb),0.07);box-shadow:0 4px 18px rgba(var(--color-dark-rgb),0.06);">
+        <div style="height:220px;position:relative;overflow:hidden;">
+          <img src="GF5.jpg" alt="Fish Feed" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(var(--color-dark-rgb),0.15) 0%,rgba(var(--color-dark-rgb),0.65) 100%);"></div>
+          <div style="position:absolute;bottom:1.25rem;left:1.5rem;right:1.5rem;">
+            <div style="background:var(--color-gold);color:var(--color-dark);border-radius:8px;padding:0.3rem 0.7rem;display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Fish Feed</div>
+            <h3 style="font-size:1.2rem;font-weight:700;color:#fff;letter-spacing:-0.01em;line-height:1.2;">Tilapia &amp; Catfish<br>Pellets</h3>
+          </div>
+        </div>
+        <div style="padding:1.4rem 1.5rem 1.6rem;background:#fff;">
+          <p style="font-size:0.88rem;line-height:1.75;color:rgba(var(--color-dark-rgb),0.62);margin-bottom:1rem;">High-protein floating and sinking pellets formulated for tilapia, catfish, and other freshwater species. Promotes rapid, healthy growth.</p>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <span style="font-size:0.7rem;font-weight:600;background:rgba(var(--color-teal-rgb),0.12);color:var(--color-teal);border-radius:6px;padding:0.2rem 0.6rem;letter-spacing:0.04em;">High Protein</span>
+            <span style="font-size:0.7rem;font-weight:600;background:rgba(var(--color-gold-rgb),0.1);color:var(--color-gold-dim);border-radius:6px;padding:0.2rem 0.6rem;letter-spacing:0.04em;">Locally Sourced</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Poultry Feed -->
+      <div class="card-lift" style="border-radius:22px;overflow:hidden;border:1px solid rgba(var(--color-dark-rgb),0.07);box-shadow:0 4px 18px rgba(var(--color-dark-rgb),0.06);">
+        <div style="height:220px;position:relative;overflow:hidden;">
+          <img src="GF3.jpg" alt="Poultry Feed" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(var(--color-dark-rgb),0.15) 0%,rgba(var(--color-dark-rgb),0.65) 100%);"></div>
+          <div style="position:absolute;bottom:1.25rem;left:1.5rem;right:1.5rem;">
+            <div style="background:var(--color-teal);color:var(--color-dark);border-radius:8px;padding:0.3rem 0.7rem;display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Poultry Feed</div>
+            <h3 style="font-size:1.2rem;font-weight:700;color:#fff;letter-spacing:-0.01em;line-height:1.2;">Layers &amp; Broiler<br>Mash</h3>
+          </div>
+        </div>
+        <div style="padding:1.4rem 1.5rem 1.6rem;background:#fff;">
+          <p style="font-size:0.88rem;line-height:1.75;color:rgba(var(--color-dark-rgb),0.62);margin-bottom:1rem;">Balanced rations for layers, broilers, and indigenous chickens. Formulated to maximise egg production and meat quality for smallholder farms.</p>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <span style="font-size:0.7rem;font-weight:600;background:rgba(var(--color-teal-rgb),0.12);color:var(--color-teal);border-radius:6px;padding:0.2rem 0.6rem;letter-spacing:0.04em;">Balanced Ration</span>
+            <span style="font-size:0.7rem;font-weight:600;background:rgba(var(--color-gold-rgb),0.1);color:var(--color-gold-dim);border-radius:6px;padding:0.2rem 0.6rem;letter-spacing:0.04em;">Vet Approved</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Livestock Feed -->
+      <div class="card-lift" style="border-radius:22px;overflow:hidden;border:1px solid rgba(var(--color-dark-rgb),0.07);box-shadow:0 4px 18px rgba(var(--color-dark-rgb),0.06);">
+        <div style="height:220px;position:relative;overflow:hidden;">
+          <img src="PHOTO-2026-02-11-13-13-00.jpg" alt="Livestock Feed" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(var(--color-dark-rgb),0.15) 0%,rgba(var(--color-dark-rgb),0.65) 100%);"></div>
+          <div style="position:absolute;bottom:1.25rem;left:1.5rem;right:1.5rem;">
+            <div style="background:var(--color-soft-gold);color:var(--color-dark);border-radius:8px;padding:0.3rem 0.7rem;display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Livestock Feed</div>
+            <h3 style="font-size:1.2rem;font-weight:700;color:#fff;letter-spacing:-0.01em;line-height:1.2;">Dairy &amp; Beef<br>Concentrates</h3>
+          </div>
+        </div>
+        <div style="padding:1.4rem 1.5rem 1.6rem;background:#fff;">
+          <p style="font-size:0.88rem;line-height:1.75;color:rgba(var(--color-dark-rgb),0.62);margin-bottom:1rem;">Nutrient-dense concentrates for dairy cows, beef cattle, and small ruminants. Increases milk yield and supports healthy weight gain.</p>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <span style="font-size:0.7rem;font-weight:600;background:rgba(var(--color-soft-gold-rgb),0.25);color:rgba(var(--color-dark-rgb),0.7);border-radius:6px;padding:0.2rem 0.6rem;letter-spacing:0.04em;">Nutrient Dense</span>
+            <span style="font-size:0.7rem;font-weight:600;background:rgba(var(--color-gold-rgb),0.1);color:var(--color-gold-dim);border-radius:6px;padding:0.2rem 0.6rem;letter-spacing:0.04em;">Affordable</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<style>@media(max-width:768px){.products-grid{grid-template-columns:1fr!important}}</style>
+
+
+<!-- ═══════════════ MISSION & IMPACT ═══════════════ -->
+<section id="about" class="noise" style="
+  background:
+    radial-gradient(ellipse 50% 70% at 5% 50%, rgba(var(--color-gold-rgb),0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 60% at 95% 50%, rgba(var(--color-teal-rgb),0.07) 0%, transparent 55%),
+    var(--color-dark);
+  padding: 96px 1.5rem;
+">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:center;position:relative;z-index:3;" class="about-grid">
+
+    <!-- Left: photo collage -->
+    <div style="position:relative;">
+      <div style="border-radius:24px;overflow:hidden;height:500px;position:relative;box-shadow:0 24px 70px rgba(var(--color-dark-rgb),0.5);">
+        <img src="GF8ù.jpg" alt="GreatLakes Feeds team in the field" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(var(--color-dark-rgb),0.5) 100%);pointer-events:none;"></div>
+      </div>
+      <!-- floating stat -->
+      <div style="
+        position:absolute;bottom:-22px;right:-22px;
+        background:var(--color-gold);color:var(--color-dark);
+        border-radius:20px;padding:1.25rem 1.5rem;
+        box-shadow:0 10px 36px rgba(var(--color-gold-rgb),0.45);
+        min-width:160px;
+      ">
+        <div style="font-family:'Playfair Display',serif;font-weight:800;font-size:2.2rem;line-height:1;">3,600+</div>
+        <div style="font-size:0.75rem;font-weight:600;letter-spacing:0.05em;margin-top:0.2rem;">Women &amp; Youth<br>Trained</div>
+      </div>
+    </div>
+
+    <!-- Right: copy -->
+    <div>
+      <div class="label-pill label-pill-light" style="margin-bottom:1.25rem;">Our Mission &amp; Story</div>
+      <h2 style="
+        font-weight:800; font-size:clamp(2.2rem,4.5vw,3.4rem);
+        letter-spacing:-0.025em; color:#fff; line-height:1.1; margin-bottom:1.75rem;
+      ">
+        From the Lake<br>
+        <span style="background:linear-gradient(135deg,var(--color-gold) 0%,var(--color-soft-gold) 55%,var(--color-teal) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">to Your Farm</span>
+      </h2>
+      <p style="font-size:0.98rem;line-height:1.9;color:rgba(255,255,255,0.68);margin-bottom:1.2rem;">
+        Our mission is to work alongside communities to improve incomes, expand opportunities, and strengthen food security through inclusive and sustainable approaches that leave no one behind.
+      </p>
+      <p style="font-size:0.98rem;line-height:1.9;color:rgba(255,255,255,0.68);margin-bottom:2rem;">
+        We envision a system where farmers are not just producers, but empowered partners — where economic growth goes hand in hand with social and environmental responsibility that promotes the growth of our community.
+      </p>
+
+      <!-- 4 impact tiles -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div style="padding:1rem 1.25rem;border-radius:14px;background:rgba(var(--color-gold-rgb),0.08);border:1px solid rgba(var(--color-gold-rgb),0.18);">
+          <div style="font-family:'Playfair Display',serif;font-weight:800;font-size:1.6rem;color:var(--color-gold);line-height:1;">2,500MT</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:0.2rem;font-weight:500;">Cereal aggregated annually</div>
+        </div>
+        <div style="padding:1rem 1.25rem;border-radius:14px;background:rgba(var(--color-teal-rgb),0.08);border:1px solid rgba(var(--color-teal-rgb),0.2);">
+          <div style="font-family:'Playfair Display',serif;font-weight:800;font-size:1.6rem;color:var(--color-teal);line-height:1;">2,000+</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:0.2rem;font-weight:500;">Businesses created</div>
+        </div>
+        <div style="padding:1rem 1.25rem;border-radius:14px;background:rgba(var(--color-teal-rgb),0.08);border:1px solid rgba(var(--color-teal-rgb),0.2);">
+          <div style="font-family:'Playfair Display',serif;font-weight:800;font-size:1.6rem;color:var(--color-teal);line-height:1;">1,500MT</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:0.2rem;font-weight:500;">Fish &amp; poultry produced</div>
+        </div>
+        <div style="padding:1rem 1.25rem;border-radius:14px;background:rgba(var(--color-gold-rgb),0.08);border:1px solid rgba(var(--color-gold-rgb),0.18);">
+          <div style="font-family:'Playfair Display',serif;font-weight:800;font-size:1.6rem;color:var(--color-gold);line-height:1;">1,200+</div>
+          <div style="font-size:0.75rem;color:rgba(255,255,255,0.5);margin-top:0.2rem;font-weight:500;">Indirect jobs created</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<style>@media(max-width:768px){.about-grid{grid-template-columns:1fr!important;gap:3rem!important}.about-grid>div:first-child{max-height:320px}}</style>
+
+
+<!-- ═══════════════ CORE VALUES ═══════════════ -->
+<section id="values" style="background:#fff;padding:96px 1.5rem;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <div class="label-pill" style="margin-bottom:1rem;">What We Stand For</div>
+      <h2 style="font-weight:800;font-size:clamp(2rem,4vw,2.8rem);letter-spacing:-0.02em;color:var(--color-dark);line-height:1.1;margin-bottom:1rem;">
+        Our Core <span class="gold-line">Values</span>
+      </h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;" class="values-grid">
+
+      <!-- Women's Employment -->
+      <div class="card-lift" style="border-radius:20px;padding:2rem 1.5rem;border:1px solid rgba(var(--color-soft-gold-rgb),0.5);background:linear-gradient(145deg,rgba(var(--color-gold-rgb),0.04) 0%,#fff 100%);">
+        <div style="width:56px;height:56px;border-radius:14px;background:rgba(var(--color-gold-rgb),0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+          <svg width="26" height="26" fill="none" style="stroke:var(--color-gold);stroke-width:1.8" viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3 style="font-weight:700;font-size:1.05rem;color:var(--color-dark);margin-bottom:0.6rem;letter-spacing:-0.01em;">Women's Employment</h3>
+        <p style="font-size:0.86rem;line-height:1.72;color:rgba(var(--color-dark-rgb),0.6);">Empowering women and youth to build their own businesses and take an active role in their communities.</p>
+      </div>
+
+      <!-- Trust -->
+      <div class="card-lift" style="border-radius:20px;padding:2rem 1.5rem;border:1px solid rgba(var(--color-teal-rgb),0.3);background:linear-gradient(145deg,rgba(var(--color-teal-rgb),0.04) 0%,#fff 100%);">
+        <div style="width:56px;height:56px;border-radius:14px;background:rgba(var(--color-teal-rgb),0.1);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+          <svg width="26" height="26" fill="none" style="stroke:var(--color-teal);stroke-width:1.8" viewBox="0 0 24 24">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4" style="stroke-width:2"/>
+          </svg>
+        </div>
+        <h3 style="font-weight:700;font-size:1.05rem;color:var(--color-dark);margin-bottom:0.6rem;letter-spacing:-0.01em;">Trust</h3>
+        <p style="font-size:0.86rem;line-height:1.72;color:rgba(var(--color-dark-rgb),0.6);">We operate with full transparency and integrity — because lasting partnerships are built on honest foundations.</p>
+      </div>
+
+      <!-- Quality -->
+      <div class="card-lift" style="border-radius:20px;padding:2rem 1.5rem;border:1px solid rgba(var(--color-soft-gold-rgb),0.5);background:linear-gradient(145deg,rgba(var(--color-soft-gold-rgb),0.08) 0%,#fff 100%);">
+        <div style="width:56px;height:56px;border-radius:14px;background:rgba(var(--color-soft-gold-rgb),0.2);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+          <svg width="26" height="26" fill="none" style="stroke:var(--color-gold-dim);stroke-width:1.8" viewBox="0 0 24 24">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <h3 style="font-weight:700;font-size:1.05rem;color:var(--color-dark);margin-bottom:0.6rem;letter-spacing:-0.01em;">Quality</h3>
+        <p style="font-size:0.86rem;line-height:1.72;color:rgba(var(--color-dark-rgb),0.6);">Ingredients sourced locally, reducing import dependence and delivering consistently superior nutrition to every farmer.</p>
+      </div>
+
+      <!-- Community -->
+      <div class="card-lift" style="border-radius:20px;padding:2rem 1.5rem;border:1px solid rgba(var(--color-royal-blue-rgb),0.15);background:linear-gradient(145deg,rgba(var(--color-royal-blue-rgb),0.03) 0%,#fff 100%);">
+        <div style="width:56px;height:56px;border-radius:14px;background:rgba(var(--color-royal-blue-rgb),0.07);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;">
+          <svg width="26" height="26" fill="none" style="stroke:var(--color-royal-blue);stroke-width:1.8" viewBox="0 0 24 24">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <h3 style="font-weight:700;font-size:1.05rem;color:var(--color-dark);margin-bottom:0.6rem;letter-spacing:-0.01em;">Community</h3>
+        <p style="font-size:0.86rem;line-height:1.72;color:rgba(var(--color-dark-rgb),0.6);">We give local people a market for their own produce — keeping wealth circulating where it matters most.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<style>@media(max-width:900px){.values-grid{grid-template-columns:1fr 1fr!important}}@media(max-width:480px){.values-grid{grid-template-columns:1fr!important}}</style>
+
+
+<!-- ═══════════════ WHO WE SERVE ═══════════════ -->
+<section id="serve" style="background:rgba(var(--color-soft-gold-rgb),0.12);padding:96px 1.5rem;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <div class="label-pill" style="margin-bottom:1rem;">Our Community</div>
+      <h2 style="font-weight:800;font-size:clamp(2rem,4vw,2.8rem);letter-spacing:-0.02em;color:var(--color-dark);line-height:1.1;margin-bottom:1rem;">
+        Who We <span class="gold-line">Serve</span>
+      </h2>
+      <p style="font-size:1rem;line-height:1.8;color:rgba(var(--color-dark-rgb),0.6);max-width:480px;margin:0 auto;">
+        Our work touches everyone across the value chain — from the farm gate to the dinner table.
+      </p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;" class="serve-grid">
+
+      <div class="card-lift" style="border-radius:22px;overflow:hidden;background:#fff;border:1px solid rgba(var(--color-dark-rgb),0.07);box-shadow:0 4px 18px rgba(var(--color-dark-rgb),0.05);">
+        <div style="height:190px;position:relative;overflow:hidden;">
+          <img src="GF1.jpg" alt="Farmers and Fisherfolk" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(var(--color-dark-rgb),0.6) 100%);"></div>
+        </div>
+        <div style="padding:1.5rem;">
+          <h3 style="font-weight:700;font-size:1.1rem;color:var(--color-dark);margin-bottom:0.5rem;letter-spacing:-0.01em;">Farmers &amp; Fisherfolk</h3>
+          <p style="font-size:0.87rem;line-height:1.72;color:rgba(var(--color-dark-rgb),0.6);">Smallholder fish farmers, poultry keepers, and livestock owners — the backbone of our community who we exist to empower.</p>
+        </div>
+      </div>
+
+      <div class="card-lift" style="border-radius:22px;overflow:hidden;background:#fff;border:1px solid rgba(var(--color-dark-rgb),0.07);box-shadow:0 4px 18px rgba(var(--color-dark-rgb),0.05);">
+        <div style="height:190px;position:relative;overflow:hidden;">
+          <img src="GF6.jpg" alt="Investors and Donors" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(var(--color-dark-rgb),0.6) 100%);"></div>
+        </div>
+        <div style="padding:1.5rem;">
+          <h3 style="font-weight:700;font-size:1.1rem;color:var(--color-dark);margin-bottom:0.5rem;letter-spacing:-0.01em;">Investors &amp; Donors</h3>
+          <p style="font-size:0.87rem;line-height:1.72;color:rgba(var(--color-dark-rgb),0.6);">Impact-driven partners who share our vision of a resilient, food-secure East Africa and want to invest in sustainable community growth.</p>
+        </div>
+      </div>
+
+      <div class="card-lift" style="border-radius:22px;overflow:hidden;background:#fff;border:1px solid rgba(var(--color-dark-rgb),0.07);box-shadow:0 4px 18px rgba(var(--color-dark-rgb),0.05);">
+        <div style="height:190px;position:relative;overflow:hidden;">
+          <img src="84120689-9865-41a6-b40a-1685adf18189.JPG" alt="NGOs and Cooperatives" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(var(--color-dark-rgb),0.6) 100%);"></div>
+        </div>
+        <div style="padding:1.5rem;">
+          <h3 style="font-weight:700;font-size:1.1rem;color:var(--color-dark);margin-bottom:0.5rem;letter-spacing:-0.01em;">NGOs &amp; Cooperatives</h3>
+          <p style="font-size:0.87rem;line-height:1.72;color:rgba(var(--color-dark-rgb),0.6);">Development organisations and farmer cooperatives we partner with to deliver subsidised feeds and training where it's needed most.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<style>@media(max-width:768px){.serve-grid{grid-template-columns:1fr!important}}</style>
+
+
+<!-- ═══════════════ TRAINING BANNER ═══════════════ -->
+<section class="noise" style="position:relative;overflow:hidden;padding:0;">
+  <div style="position:relative;height:520px;">
+    <img src="Greatlakes Team Picture.jpg" alt="GreatLakes Feeds farmer training" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;">
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(var(--color-dark-rgb),0.88) 0%,rgba(var(--color-dark-rgb),0.55) 55%,rgba(var(--color-dark-rgb),0.2) 100%);"></div>
+    <div style="position:absolute;inset:0;background:rgba(var(--color-gold-rgb),0.04);mix-blend-mode:multiply;"></div>
+    <div style="position:absolute;inset:0;display:flex;align-items:center;z-index:3;padding:2rem 1.5rem;">
+      <div style="max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;" class="training-grid">
+        <div>
+          <div class="label-pill label-pill-light" style="margin-bottom:1.25rem;">Farmer Training &amp; Support</div>
+          <h2 style="font-weight:800;font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.025em;color:#fff;line-height:1.1;margin-bottom:1.25rem;">
+            We Go Beyond<br>
+            <span style="color:var(--color-gold);">the Feed Bag</span>
+          </h2>
+          <p style="font-size:0.97rem;line-height:1.85;color:rgba(255,255,255,0.7);margin-bottom:1.75rem;max-width:420px;">
+            Our technical support programmes equip farmers with the knowledge, skills, and confidence to run profitable, sustainable operations — from pond preparation to market access.
+          </p>
+          <a href="https://wa.me/254731800767" target="_blank" class="btn-gold">
+            Join a Training Programme
+            <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:1.1rem 1.4rem;display:flex;align-items:center;gap:1rem;">
+            <div style="width:44px;height:44px;flex-shrink:0;border-radius:10px;background:rgba(var(--color-gold-rgb),0.18);display:flex;align-items:center;justify-content:center;">
+              <svg width="22" height="22" fill="none" style="stroke:var(--color-gold);stroke-width:1.8" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div>
+              <div style="font-weight:600;font-size:0.9rem;color:#fff;margin-bottom:0.15rem;">Hands-on Workshops</div>
+              <div style="font-size:0.8rem;color:rgba(255,255,255,0.55);">Feed management, pond prep, and yield optimisation</div>
+            </div>
+          </div>
+          <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:1.1rem 1.4rem;display:flex;align-items:center;gap:1rem;">
+            <div style="width:44px;height:44px;flex-shrink:0;border-radius:10px;background:rgba(var(--color-teal-rgb),0.18);display:flex;align-items:center;justify-content:center;">
+              <svg width="22" height="22" fill="none" style="stroke:var(--color-teal);stroke-width:1.8" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <div style="font-weight:600;font-size:0.9rem;color:#fff;margin-bottom:0.15rem;">Women &amp; Youth Empowerment</div>
+              <div style="font-size:0.8rem;color:rgba(255,255,255,0.55);">Business skills, market access, income generation</div>
+            </div>
+          </div>
+          <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:1.1rem 1.4rem;display:flex;align-items:center;gap:1rem;">
+            <div style="width:44px;height:44px;flex-shrink:0;border-radius:10px;background:rgba(var(--color-royal-blue-rgb),0.18);display:flex;align-items:center;justify-content:center;">
+              <svg width="22" height="22" fill="none" style="stroke:var(--color-royal-blue);stroke-width:1.8" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div style="font-weight:600;font-size:0.9rem;color:#fff;margin-bottom:0.15rem;">NGO &amp; Co-op Partnerships</div>
+              <div style="font-size:0.8rem;color:rgba(255,255,255,0.55);">Subsidised feeds for underserved farming communities</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>@media(max-width:768px){.training-grid{grid-template-columns:1fr!important}.training-grid>div:last-child{display:none!important}}</style>
+
+
+<!-- ═══════════════ TEAM ═══════════════ -->
+<section id="team" style="background:#fff;padding:96px 1.5rem;">
+  <div style="max-width:1000px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <div class="label-pill" style="margin-bottom:1rem;">The People Behind the Mission</div>
+      <h2 style="font-weight:800;font-size:clamp(2rem,4vw,2.8rem);letter-spacing:-0.02em;color:var(--color-dark);line-height:1.1;">
+        Meet Our <span class="gold-line">Team</span>
+      </h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;" class="team-grid">
+
+      <div class="card-lift" style="border-radius:22px;overflow:hidden;background:#fff;border:1px solid rgba(var(--color-dark-rgb),0.07);box-shadow:0 6px 26px rgba(var(--color-dark-rgb),0.08);text-align:center;">
+        <div style="height:280px;overflow:hidden;position:relative;">
+          <img src="Mathilda Amolo.JPG" alt="Mathilda Amolo" style="width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block;">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(var(--color-dark-rgb),0.4) 100%);"></div>
+        </div>
+        <div style="padding:1.25rem 1.25rem 1.5rem;">
+          <div style="display:inline-block;background:rgba(var(--color-gold-rgb),0.1);border:1px solid rgba(var(--color-gold-rgb),0.28);color:var(--color-gold-dim);border-radius:100px;font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.2rem 0.75rem;margin-bottom:0.6rem;">CEO</div>
+          <h3 style="font-weight:700;font-size:1.05rem;color:var(--color-dark);line-height:1.2;">Mathilda Amolo</h3>
+        </div>
+      </div>
+
+      <div class="card-lift" style="border-radius:22px;overflow:hidden;background:#fff;border:1px solid rgba(var(--color-dark-rgb),0.07);box-shadow:0 6px 26px rgba(var(--color-dark-rgb),0.08);text-align:center;">
+        <div style="height:280px;overflow:hidden;position:relative;">
+          <img src="Frederick Obudho.JPG" alt="Frederick Obudho" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(var(--color-dark-rgb),0.4) 100%);"></div>
+        </div>
+        <div style="padding:1.25rem 1.25rem 1.5rem;">
+          <div style="display:inline-block;background:rgba(var(--color-teal-rgb),0.12);border:1px solid rgba(var(--color-teal-rgb),0.35);color:var(--color-teal);border-radius:100px;font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.2rem 0.75rem;margin-bottom:0.6rem;">Director</div>
+          <h3 style="font-weight:700;font-size:1.05rem;color:var(--color-dark);line-height:1.2;">Frederick Obudho</h3>
+        </div>
+      </div>
+
+      <div class="card-lift" style="border-radius:22px;overflow:hidden;background:#fff;border:1px solid rgba(var(--color-dark-rgb),0.07);box-shadow:0 6px 26px rgba(var(--color-dark-rgb),0.08);text-align:center;">
+        <div style="height:280px;overflow:hidden;position:relative;">
+          <img src="Proscovia Alando.JPG" alt="Proscovia Alando" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(var(--color-dark-rgb),0.4) 100%);"></div>
+        </div>
+        <div style="padding:1.25rem 1.25rem 1.5rem;">
+          <div style="display:inline-block;background:rgba(var(--color-royal-blue-rgb),0.07);border:1px solid rgba(var(--color-royal-blue-rgb),0.2);color:var(--color-royal-blue);border-radius:100px;font-size:0.62rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:0.2rem 0.75rem;margin-bottom:0.6rem;">Board Member</div>
+          <h3 style="font-weight:700;font-size:1.05rem;color:var(--color-dark);line-height:1.2;">Proscovia Alando</h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<style>@media(max-width:680px){.team-grid{grid-template-columns:1fr!important;max-width:320px;margin:0 auto}}</style>
+
+
+<!-- ═══════════════ GALLERY ═══════════════ -->
+<section style="background:var(--color-dark);padding:80px 1.5rem;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <div class="label-pill label-pill-light" style="margin-bottom:1rem;">On The Ground</div>
+      <h2 style="font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:-0.02em;color:#fff;line-height:1.1;">
+        Our Work in <span style="color:var(--color-gold);">Action</span>
+      </h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:0.75rem;" class="gallery-grid">
+      <div style="grid-column:1/3;border-radius:16px;overflow:hidden;height:290px;position:relative;" class="gal-item">
+        <img src="GF5.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;">
+        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(var(--color-dark-rgb),0.5) 100%);pointer-events:none;"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.75rem;">
+        <div style="border-radius:16px;overflow:hidden;height:140px;" class="gal-item"><img src="GF2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;"></div>
+        <div style="border-radius:16px;overflow:hidden;height:140px;" class="gal-item"><img src="GF7.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;"></div>
+      </div>
+      <div style="border-radius:16px;overflow:hidden;height:230px;" class="gal-item"><img src="GF1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;"></div>
+      <div style="border-radius:16px;overflow:hidden;height:230px;" class="gal-item"><img src="GF4.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.5s ease;"></div>
+      <div style="border-radius:16px;overflow:hidden;height:230px;" class="gal-item"><img src="PHOTO-2026-04-20-11-05-02.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;"></div>
+      <div style="border-radius:16px;overflow:hidden;height:290px;" class="gal-item"><img src="GF6.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;"></div>
+      <div style="grid-column:2/4;border-radius:16px;overflow:hidden;height:290px;" class="gal-item"><img src="GF8ù.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transition:transform 0.5s ease;"></div>
+    </div>
+  </div>
+</section>
+<style>
+  .gal-item:hover img { transform: scale(1.04); }
+  .gal-item { overflow: hidden; }
+  @media(max-width:768px){.gallery-grid{grid-template-columns:1fr 1fr!important}.gallery-grid>[style*="grid-column"]{grid-column:span 2!important}}
+  @media(max-width:480px){.gallery-grid{grid-template-columns:1fr!important}.gallery-grid>[style*="grid-column"]{grid-column:span 1!important}}
+</style>
+
+
+<!-- ═══════════════ CONTACT CTA ═══════════════ -->
+<section id="contact" class="noise" style="
+  background:
+    radial-gradient(ellipse 60% 100% at 90% 50%, rgba(var(--color-gold-rgb),0.18) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 80% at 10% 50%, rgba(var(--color-teal-rgb),0.12) 0%, transparent 55%),
+    var(--color-dark);
+  padding: 96px 1.5rem;
+">
+  <div style="max-width:800px;margin:0 auto;text-align:center;position:relative;z-index:3;">
+    <div class="label-pill label-pill-light" style="margin-bottom:1.25rem;">Let's Connect</div>
+    <h2 style="font-weight:800;font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.025em;color:#fff;line-height:1.1;margin-bottom:1rem;">
+      Ready to <span style="color:var(--color-gold);">Grow With Us?</span>
+    </h2>
+    <p style="font-size:1rem;line-height:1.85;color:rgba(255,255,255,0.6);max-width:500px;margin:0 auto 2.5rem;">
+      Whether you're a farmer, investor, or partner — we'd love to hear from you. Reach out today on WhatsApp or by email and we'll get back to you.
+    </p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="https://wa.me/254731800767" target="_blank" rel="noopener" class="btn-gold" style="font-size:0.95rem;padding:0.85rem 2rem;">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat on WhatsApp
+      </a>
+      <a href="mailto:info@greatlakesfeeds.com" class="btn-ghost-light" style="font-size:0.95rem;padding:0.85rem 2rem;">
+        <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email Us
+      </a>
+    </div>
+    <div style="margin-top:2rem;display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;">
+      <a href="tel:+254731800767" style="font-size:0.85rem;color:rgba(255,255,255,0.45);text-decoration:none;display:flex;align-items:center;gap:0.35rem;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.38 2 2 0 0 1 3.58 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +254 731 800 767
+      </a>
+      <a href="tel:+254079459071" style="font-size:0.85rem;color:rgba(255,255,255,0.45);text-decoration:none;display:flex;align-items:center;gap:0.35rem;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.38 2 2 0 0 1 3.58 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +254 079 459 071 (Office)
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer style="background:var(--color-dark);border-top:1px solid rgba(var(--color-gold-rgb),0.1);padding:3.5rem 1.5rem 2rem;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1.6fr;gap:3rem;margin-bottom:3rem;" class="footer-grid">
+
+      <!-- Brand -->
+      <div>
+        <div style="display:flex;align-items:center;gap:0.8rem;margin-bottom:1rem;">
+          <img src="brand_assets/ Greatlakes Feeds logo.png" alt="GreatLakes Feeds" style="height:44px;width:auto;">
+          <div>
+            <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:#fff;letter-spacing:0.18em;line-height:1.1;text-transform:uppercase;">GREATLAKES</div>
+            <div style="font-family:'Playfair Display',serif;font-weight:500;font-size:0.55rem;color:var(--color-gold);letter-spacing:0.22em;text-transform:uppercase;">FEEDS</div>
+          </div>
+        </div>
+        <p style="font-size:0.85rem;line-height:1.8;color:rgba(255,255,255,0.45);max-width:230px;margin-bottom:1.4rem;">
+          Nourishing communities and empowering farmers through high-quality, locally-sourced feeds around Lake Victoria.
+        </p>
+        <div style="display:flex;gap:0.6rem;">
+          <a href="#" aria-label="LinkedIn" style="width:33px;height:33px;border-radius:50%;border:1px solid rgba(var(--color-gold-rgb),0.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.45);text-decoration:none;transition:border-color 0.2s,color 0.2s,transform 0.22s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.borderColor='var(--color-gold)';this.style.color='var(--color-gold)';this.style.transform='scale(1.12)'" onmouseout="this.style.borderColor='rgba(212,167,35,0.2)';this.style.color='rgba(255,255,255,0.45)';this.style.transform='scale(1)'"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="Instagram" style="width:33px;height:33px;border-radius:50%;border:1px solid rgba(var(--color-gold-rgb),0.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.45);text-decoration:none;transition:border-color 0.2s,color 0.2s,transform 0.22s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.borderColor='var(--color-gold)';this.style.color='var(--color-gold)';this.style.transform='scale(1.12)'" onmouseout="this.style.borderColor='rgba(212,167,35,0.2)';this.style.color='rgba(255,255,255,0.45)';this.style.transform='scale(1)'"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://wa.me/254731800767" aria-label="WhatsApp" target="_blank" style="width:33px;height:33px;border-radius:50%;border:1px solid rgba(37,211,102,0.25);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.45);text-decoration:none;transition:border-color 0.2s,color 0.2s,transform 0.22s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.borderColor='#25D366';this.style.color='#25D366';this.style.transform='scale(1.12)'" onmouseout="this.style.borderColor='rgba(37,211,102,0.25)';this.style.color='rgba(255,255,255,0.45)';this.style.transform='scale(1)'"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 style="font-family:'Inter',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-gold);margin-bottom:1.2rem;">Quick Links</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
+          <li><a href="#products" style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Our Products</a></li>
+          <li><a href="#about" style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">About Us</a></li>
+          <li><a href="#values" style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Our Values</a></li>
+          <li><a href="#team" style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Our Team</a></li>
+          <li><a href="#contact" style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Products -->
+      <div>
+        <h4 style="font-family:'Inter',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-gold);margin-bottom:1.2rem;">Our Feeds</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
+          <li><a href="#products" style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Fish Feeds</a></li>
+          <li><a href="#products" style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Poultry Feeds</a></li>
+          <li><a href="#products" style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Livestock Feeds</a></li>
+          <li><a href="#contact" style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Farmer Training</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact + Map -->
+      <div>
+        <h4 style="font-family:'Inter',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-gold);margin-bottom:1.2rem;">Get In Touch</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.7rem;margin-bottom:1rem;">
+          <li style="display:flex;align-items:flex-start;gap:0.5rem;">
+            <svg width="13" height="13" fill="none" style="stroke:rgba(var(--color-gold-rgb),0.6);stroke-width:2;flex-shrink:0;margin-top:3px;" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a4.1 4.1 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+            <a href="https://wa.me/254731800767" target="_blank" style="font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">+254 731 800 767 (WhatsApp)</a>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.5rem;">
+            <svg width="13" height="13" fill="none" style="stroke:rgba(var(--color-gold-rgb),0.6);stroke-width:2;flex-shrink:0;margin-top:3px;" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.38 2 2 0 0 1 3.58 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+254079459071" style="font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">+254 079 459 071 (Office)</a>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.5rem;">
+            <svg width="13" height="13" fill="none" style="stroke:rgba(var(--color-gold-rgb),0.6);stroke-width:2;flex-shrink:0;margin-top:3px;" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@greatlakesfeeds.com" style="font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">info@greatlakesfeeds.com</a>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.5rem;">
+            <svg width="13" height="13" fill="none" style="stroke:rgba(var(--color-gold-rgb),0.6);stroke-width:2;flex-shrink:0;margin-top:3px;" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span style="font-size:0.82rem;color:rgba(255,255,255,0.5);">V4XF+PQ Kadimu, Kenya</span>
+          </li>
+        </ul>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.8121532828895!2d34.124477899999995!3d-0.10073959999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19d5670443c214c7%3A0xfa17be2bafa106fd!2sGreatlakes%20fish%20farms%20and%20feeds!5e0!3m2!1sen!2ses!4v1776755855843!5m2!1sen!2ses"
+          style="width:100%;height:220px;border-radius:12px;border:0;display:block;opacity:0.88;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <p style="font-size:0.76rem;color:rgba(255,255,255,0.28);">&copy; 2026 GreatLakes Feeds. All rights reserved.</p>
+      <p style="font-size:0.76rem;color:rgba(255,255,255,0.28);">Nourishing Communities · Empowering Farmers · Sustaining the Lake</p>
+    </div>
+  </div>
+</footer>
+<style>
+  @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr!important}}
+  @media(max-width:480px){.footer-grid{grid-template-columns:1fr!important}}
+</style>
+
+
+<!-- ═══════════════ FLOATING WHATSAPP ═══════════════ -->
+<a href="https://wa.me/254731800767" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
+  style="
+    position:fixed;bottom:1.75rem;right:1.75rem;z-index:100;
+    width:56px;height:56px;border-radius:50%;
+    background:#25D366;color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 14px rgba(37,211,102,0.45),0 2px 6px rgba(var(--color-dark-rgb),0.2);
+    text-decoration:none;
+    transition:transform 0.28s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.22s ease;
+  "
+  onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 6px 22px rgba(37,211,102,0.55)'"
+  onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 14px rgba(37,211,102,0.45)'"
+>
+  <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+</body>
+</html>

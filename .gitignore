@@ -1,0 +1,15 @@
+# Dev references — not needed on the live site
+temporary screenshots/
+addisufkd8.wixsite.com_lucy-enset.png
+immpact section.png
+CLAUDE.md
+serve.py
+
+# Brand book PDF — large file, not needed for deployment
+brand_assets/GreatLakes Feeds - Brand Book.pdf
+
+# Claude Code local config
+.claude/
+
+# macOS
+.DS_Store
