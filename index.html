@@ -155,54 +155,30 @@
 
 
 <!-- ═══════════════ HERO ═══════════════ -->
-<section class="noise" style="
-  position:relative; overflow:hidden;
-  background:
-    radial-gradient(ellipse 70% 80% at 80% 20%, rgba(var(--color-gold-rgb),0.28) 0%, transparent 52%),
-    radial-gradient(ellipse 55% 60% at 15% 85%, rgba(var(--color-teal-rgb),0.2) 0%, transparent 52%),
-    radial-gradient(ellipse 90% 90% at 50% 50%, rgba(var(--color-royal-blue-rgb),0.08) 0%, transparent 65%),
-    var(--color-dark);
-  padding: 90px 1.5rem 0;
-  min-height: 640px;
-  display: flex; align-items: center;
-">
-  <div style="position:absolute;top:50%;right:6%;transform:translateY(-50%);width:500px;height:500px;border-radius:50%;border:1px solid rgba(var(--color-gold-rgb),0.08);pointer-events:none;"></div>
-  <div style="position:absolute;top:50%;right:6%;transform:translateY(-50%);width:370px;height:370px;border-radius:50%;border:1px solid rgba(var(--color-gold-rgb),0.05);pointer-events:none;"></div>
+<section class="noise" style="position:relative;overflow:hidden;min-height:700px;display:flex;align-items:center;">
+  <!-- Background photo -->
+  <img src="PHOTO-2026-02-11-13-13-00.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;z-index:0;">
+  <!-- Dark overlay -->
+  <div style="position:absolute;inset:0;background:linear-gradient(160deg,rgba(8,12,7,0.80) 0%,rgba(8,12,7,0.55) 100%);z-index:1;"></div>
+  <!-- Gold tint radial -->
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 30% 50%,rgba(var(--color-gold-rgb),0.12) 0%,transparent 60%);z-index:2;pointer-events:none;"></div>
 
-  <div style="max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:3;" class="hero-grid">
-
-    <div style="padding-bottom:90px;">
-      <div class="label-pill label-pill-light" style="margin-bottom:1.5rem;">East Africa · Lake Victoria Region</div>
-      <h1 style="
-        font-weight:800; font-size:clamp(2.6rem,5vw,4rem);
-        line-height:1.1; letter-spacing:-0.02em; color:#fff;
-        margin-bottom:1.4rem;
-      ">
-        Nourishing<br>
-        <span style="color:var(--color-gold);">Communities,</span><br>
-        Empowering<br>Farmers
-      </h1>
-      <p style="font-size:1rem;line-height:1.85;color:rgba(255,255,255,0.65);max-width:440px;margin-bottom:2.2rem;">
-        High-quality fish, poultry, and livestock feeds crafted from 100% locally sourced ingredients — strengthening livelihoods around Lake Victoria since day one.
-      </p>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
-        <a href="#products" class="btn-gold">
-          Explore Our Feeds
-          <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#about" class="btn-ghost-light">Our Mission</a>
-      </div>
-    </div>
-
-    <div style="position:relative;display:flex;justify-content:center;align-items:flex-end;height:500px;">
-      <div style="width:360px;height:440px;border-radius:200px 200px 0 0;overflow:hidden;position:relative;box-shadow:0 24px 70px rgba(var(--color-dark-rgb),0.5);">
-        <img src="GF9.jpg" alt="GreatLakes Feeds farmer" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;">
-        <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(var(--color-dark-rgb),0.4) 100%);pointer-events:none;"></div>
-      </div>
-      <div style="position:absolute;bottom:0;right:10%;background:var(--color-gold);color:var(--color-dark);border-radius:16px;padding:1rem 1.3rem;box-shadow:0 8px 28px rgba(var(--color-gold-rgb),0.45);">
-        <div style="font-family:'Playfair Display',serif;font-weight:800;font-size:1.4rem;line-height:1;">100%</div>
-        <div style="font-size:0.68rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-top:2px;">Locally Sourced</div>
-      </div>
+  <div style="max-width:900px;margin:0 auto;width:100%;padding:120px 1.5rem 100px;text-align:center;position:relative;z-index:3;">
+    <div class="label-pill label-pill-light" style="margin-bottom:1.5rem;">East Africa · Lake Victoria Region</div>
+    <h1 style="font-weight:800;font-size:clamp(2.8rem,6vw,4.4rem);line-height:1.08;letter-spacing:-0.02em;color:#fff;margin-bottom:1.4rem;">
+      Nourishing<br>
+      <span style="color:var(--color-gold);">Communities,</span><br>
+      Empowering Farmers
+    </h1>
+    <p style="font-size:1.05rem;line-height:1.85;color:rgba(255,255,255,0.68);max-width:520px;margin:0 auto 2.4rem;">
+      High-quality fish, poultry, and livestock feeds crafted from 100% locally sourced ingredients — strengthening livelihoods around Lake Victoria since day one.
+    </p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;justify-content:center;">
+      <a href="#products" class="btn-gold">
+        Explore Our Feeds
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#about" class="btn-ghost-light">Our Mission</a>
     </div>
   </div>
 
@@ -231,10 +207,7 @@
     </div>
   </div>
 </div>
-<style>
-  @media(max-width:768px){.hero-grid{grid-template-columns:1fr!important}.hero-grid>div:last-child{display:none!important}}
-  @media(max-width:560px){.stat-bar{flex-direction:column!important}}
-</style>
+<style>@media(max-width:560px){.stat-bar{flex-direction:column!important}}</style>
 
 
 <!-- ═══════════════ PRODUCTS ═══════════════ -->
@@ -255,7 +228,7 @@
       <!-- Fish Feed -->
       <div class="card-lift" style="border-radius:22px;overflow:hidden;border:1px solid rgba(var(--color-dark-rgb),0.07);box-shadow:0 4px 18px rgba(var(--color-dark-rgb),0.06);">
         <div style="height:220px;position:relative;overflow:hidden;">
-          <img src="GF5.jpg" alt="Fish Feed" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <img src="GF2.jpg" alt="Fish Feed" style="width:100%;height:100%;object-fit:cover;display:block;">
           <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(var(--color-dark-rgb),0.15) 0%,rgba(var(--color-dark-rgb),0.65) 100%);"></div>
           <div style="position:absolute;bottom:1.25rem;left:1.5rem;right:1.5rem;">
             <div style="background:var(--color-gold);color:var(--color-dark);border-radius:8px;padding:0.3rem 0.7rem;display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Fish Feed</div>
@@ -293,7 +266,7 @@
       <!-- Livestock Feed -->
       <div class="card-lift" style="border-radius:22px;overflow:hidden;border:1px solid rgba(var(--color-dark-rgb),0.07);box-shadow:0 4px 18px rgba(var(--color-dark-rgb),0.06);">
         <div style="height:220px;position:relative;overflow:hidden;">
-          <img src="PHOTO-2026-02-11-13-13-00.jpg" alt="Livestock Feed" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
+          <img src="GF1.jpg" alt="Livestock Feed" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;">
           <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(var(--color-dark-rgb),0.15) 0%,rgba(var(--color-dark-rgb),0.65) 100%);"></div>
           <div style="position:absolute;bottom:1.25rem;left:1.5rem;right:1.5rem;">
             <div style="background:var(--color-soft-gold);color:var(--color-dark);border-radius:8px;padding:0.3rem 0.7rem;display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem;">Livestock Feed</div>
@@ -328,7 +301,7 @@
     <!-- Left: photo collage -->
     <div style="position:relative;">
       <div style="border-radius:24px;overflow:hidden;height:500px;position:relative;box-shadow:0 24px 70px rgba(var(--color-dark-rgb),0.5);">
-        <img src="GF8ù.jpg" alt="GreatLakes Feeds team in the field" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <img src="84120689-9865-41a6-b40a-1685adf18189.JPG" alt="GreatLakes Feeds team in the field" style="width:100%;height:100%;object-fit:cover;display:block;">
         <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(var(--color-dark-rgb),0.5) 100%);pointer-events:none;"></div>
       </div>
       <!-- floating stat -->
@@ -470,7 +443,7 @@
 
       <div class="card-lift" style="border-radius:22px;overflow:hidden;background:#fff;border:1px solid rgba(var(--color-dark-rgb),0.07);box-shadow:0 4px 18px rgba(var(--color-dark-rgb),0.05);">
         <div style="height:190px;position:relative;overflow:hidden;">
-          <img src="GF1.jpg" alt="Farmers and Fisherfolk" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <img src="GF5.jpg" alt="Farmers and Fisherfolk" style="width:100%;height:100%;object-fit:cover;display:block;">
           <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(var(--color-dark-rgb),0.6) 100%);"></div>
         </div>
         <div style="padding:1.5rem;">
@@ -492,7 +465,7 @@
 
       <div class="card-lift" style="border-radius:22px;overflow:hidden;background:#fff;border:1px solid rgba(var(--color-dark-rgb),0.07);box-shadow:0 4px 18px rgba(var(--color-dark-rgb),0.05);">
         <div style="height:190px;position:relative;overflow:hidden;">
-          <img src="84120689-9865-41a6-b40a-1685adf18189.JPG" alt="NGOs and Cooperatives" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <img src="GF7.jpg" alt="NGOs and Cooperatives" style="width:100%;height:100%;object-fit:cover;display:block;">
           <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(var(--color-dark-rgb),0.6) 100%);"></div>
         </div>
         <div style="padding:1.5rem;">
@@ -632,13 +605,11 @@
       </div>
       <div style="display:flex;flex-direction:column;gap:0.75rem;">
         <div style="border-radius:16px;overflow:hidden;height:140px;" class="gal-item"><img src="GF2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;"></div>
-        <div style="border-radius:16px;overflow:hidden;height:140px;" class="gal-item"><img src="GF7.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;"></div>
+        <div style="border-radius:16px;overflow:hidden;height:140px;" class="gal-item"><img src="GF3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;"></div>
       </div>
       <div style="border-radius:16px;overflow:hidden;height:230px;" class="gal-item"><img src="GF1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;"></div>
-      <div style="border-radius:16px;overflow:hidden;height:230px;" class="gal-item"><img src="GF4.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.5s ease;"></div>
-      <div style="border-radius:16px;overflow:hidden;height:230px;" class="gal-item"><img src="PHOTO-2026-04-20-11-05-02.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;"></div>
-      <div style="border-radius:16px;overflow:hidden;height:290px;" class="gal-item"><img src="GF6.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;"></div>
-      <div style="grid-column:2/4;border-radius:16px;overflow:hidden;height:290px;" class="gal-item"><img src="GF8ù.jpg" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center center;display:block;transition:transform 0.5s ease;"></div>
+      <div style="border-radius:16px;overflow:hidden;height:230px;" class="gal-item"><img src="84120689-9865-41a6-b40a-1685adf18189.JPG" alt="" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;transition:transform 0.5s ease;"></div>
+      <div style="border-radius:16px;overflow:hidden;height:230px;" class="gal-item"><img src="GF6.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s ease;"></div>
     </div>
   </div>
 </section>
