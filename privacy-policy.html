@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — GreatLakes Feeds</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-gold: #d4a723;
+      --color-gold-rgb: 212,167,35;
+      --color-gold-dim: #a87d16;
+      --color-teal: #8cbbc0;
+      --color-teal-rgb: 140,187,192;
+      --color-soft-gold: #dad18e;
+      --color-soft-gold-rgb: 218,209,142;
+      --color-royal-blue: #2128c2;
+      --color-royal-blue-rgb: 33,40,194;
+      --color-dark: #080c07;
+      --color-dark-rgb: 8,12,7;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: var(--color-dark);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5 { font-family: 'Playfair Display', serif; }
+
+    .nav-link {
+      font-family: 'Inter', sans-serif; font-weight: 500; font-size: 0.88rem;
+      color: rgba(var(--color-dark-rgb),0.7);
+      text-decoration: none; letter-spacing: 0.01em;
+      transition: color 0.2s ease; position: relative;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -3px; left: 0; right: 100%;
+      height: 2px; background: var(--color-gold); transition: right 0.25s ease;
+    }
+    .nav-link:hover { color: var(--color-gold); }
+    .nav-link:hover::after { right: 0; }
+
+    .btn-gold {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: var(--color-gold); color: var(--color-dark);
+      font-family: 'Inter', sans-serif; font-weight: 700; font-size: 0.9rem;
+      padding: 0.7rem 1.6rem; border-radius: 100px; text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s ease, background 0.18s ease;
+      box-shadow: 0 3px 14px rgba(var(--color-gold-rgb),0.35);
+    }
+    .btn-gold:hover { transform: scale(1.05); background: var(--color-soft-gold); box-shadow: 0 5px 22px rgba(var(--color-gold-rgb),0.5); }
+    .btn-gold:active { transform: scale(0.97); }
+    .btn-gold:focus-visible { outline: 3px solid var(--color-gold); outline-offset: 3px; }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: rgba(var(--color-soft-gold-rgb),0.2); }
+    ::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 3px; }
+
+    .policy-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-gold);
+      margin-bottom: 0.75rem;
+      margin-top: 2.5rem;
+    }
+    .policy-section p, .policy-section li {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 0.6rem;
+    }
+    .policy-section ul {
+      padding-left: 1.4rem;
+      margin-bottom: 0.6rem;
+    }
+    .policy-section a {
+      color: var(--color-gold);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .policy-section a:hover { color: var(--color-soft-gold); }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<header id="top" style="
+  position: sticky; top: 0; z-index: 50;
+  background: #fff;
+  border-bottom: 1px solid rgba(var(--color-dark-rgb),0.07);
+  box-shadow: 0 1px 14px rgba(var(--color-dark-rgb),0.06);
+">
+  <div style="max-width:1200px;margin:0 auto;padding:0 1.5rem;height:76px;display:flex;align-items:center;justify-content:space-between;gap:2rem;">
+
+    <a href="index.html" style="display:flex;align-items:center;text-decoration:none;flex-shrink:0;">
+      <img src="brand_assets/GLF Horizontal Logo.png" alt="GreatLakes Feeds" style="height:64px;width:auto;">
+    </a>
+
+    <nav style="display:flex;gap:2.2rem;align-items:center;flex:1;justify-content:center;" class="main-nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="index.html#story" class="nav-link">Our Story</a>
+      <a href="index.html#products" class="nav-link">Products</a>
+      <a href="index.html#about" class="nav-link">About Us</a>
+      <a href="index.html#values" class="nav-link">Our Values</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <a href="index.html#donate" class="btn-gold" style="flex-shrink:0;font-size:0.93rem;padding:0.72rem 1.7rem;font-weight:700;letter-spacing:0.02em;">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      Donate
+    </a>
+  </div>
+</header>
+<style>@media(max-width:860px){.main-nav{display:none!important}}</style>
+
+
+<!-- ═══════════════ CONTENT ═══════════════ -->
+<main style="background:var(--color-dark);min-height:70vh;">
+  <div style="max-width:780px;margin:0 auto;padding:60px 1.5rem 100px;">
+
+    <!-- Back button -->
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:0.45rem;font-family:'Inter',sans-serif;font-size:0.83rem;font-weight:600;color:rgba(255,255,255,0.45);text-decoration:none;letter-spacing:0.02em;margin-bottom:2.5rem;transition:color 0.2s;" onmouseover="this.style.color='var(--color-gold)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Back to Home
+    </a>
+
+    <!-- Page heading -->
+    <div style="margin-bottom:3rem;">
+      <div style="display:inline-flex;align-items:center;gap:0.35rem;background:rgba(var(--color-gold-rgb),0.1);border:1px solid rgba(var(--color-gold-rgb),0.28);color:var(--color-gold-dim);border-radius:100px;font-family:'Inter',sans-serif;font-weight:600;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;padding:0.28rem 0.85rem;margin-bottom:1.2rem;">Legal</div>
+      <h1 style="font-size:clamp(2rem,5vw,3rem);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.02em;margin-bottom:1rem;">Privacy Policy</h1>
+      <p style="font-size:0.85rem;color:rgba(255,255,255,0.35);font-family:'Inter',sans-serif;">Last updated: 23 April 2026</p>
+    </div>
+
+    <div class="policy-section">
+
+      <p>GreatLakes Feeds ("we", "us", or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard information when you visit our website at <a href="https://greatlakesfeeds.github.io/greatlakesfeeds">greatlakesfeeds.github.io/greatlakesfeeds</a> and interact with our services.</p>
+      <p>By using our website, you agree to the terms described in this policy. If you do not agree, please do not use our website.</p>
+
+      <h2>1. Information We Collect</h2>
+      <p>We collect information that you voluntarily provide to us when you contact us through our website. This may include:</p>
+      <ul>
+        <li><strong style="color:rgba(255,255,255,0.85);">Name</strong> — so we can address you personally when responding to your inquiry.</li>
+        <li><strong style="color:rgba(255,255,255,0.85);">Email address</strong> — to respond to your messages or send information you requested.</li>
+        <li><strong style="color:rgba(255,255,255,0.85);">WhatsApp / phone number</strong> — if you initiate contact via our WhatsApp link, your number is shared with us through the WhatsApp platform.</li>
+        <li><strong style="color:rgba(255,255,255,0.85);">Message content</strong> — the details of your inquiry, request, or feedback.</li>
+      </ul>
+      <p>We do not use any automated forms that collect data in the background. We do not collect payment information directly on this website.</p>
+
+      <h2>2. How We Use Your Information</h2>
+      <p>Any personal data you provide is used solely to:</p>
+      <ul>
+        <li>Respond to your inquiries about our products and services.</li>
+        <li>Send you information you specifically requested (e.g., product specifications, pricing).</li>
+        <li>Improve the quality of our customer communication.</li>
+      </ul>
+      <p>We do <strong style="color:rgba(255,255,255,0.85);">not</strong> sell, rent, or share your personal data with third parties for marketing purposes. We do not use your data for automated profiling or decision-making.</p>
+
+      <h2>3. Cookies and Analytics</h2>
+      <p>Our website does not use tracking cookies or advertising pixels. We do not currently operate a web analytics platform (such as Google Analytics) on this site.</p>
+      <p>Your browser may store cookies set by embedded third-party services (see Section 4 below). These are governed by those third parties' own privacy policies. You can control or disable cookies through your browser settings.</p>
+
+      <h2>4. Third-Party Services</h2>
+      <p>Our website embeds or links to the following third-party services. Each operates under its own privacy policy:</p>
+      <ul>
+        <li>
+          <strong style="color:rgba(255,255,255,0.85);">WhatsApp (Meta Platforms Inc.)</strong> — clicking our WhatsApp contact button opens the WhatsApp application. Any communication initiated through WhatsApp is subject to <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener">WhatsApp's Privacy Policy</a>. WhatsApp may collect your phone number and message metadata.
+        </li>
+        <li>
+          <strong style="color:rgba(255,255,255,0.85);">YouTube (Google LLC)</strong> — our "Our Story" section embeds a YouTube video. When you play this video, YouTube may set cookies and collect viewing data in accordance with <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. The video is loaded on demand (only after you click play) to minimise data sharing on page load.
+        </li>
+        <li>
+          <strong style="color:rgba(255,255,255,0.85);">Google Maps (Google LLC)</strong> — our footer includes an embedded Google Maps frame showing our location. Google may collect data when you interact with this map, subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.
+        </li>
+        <li>
+          <strong style="color:rgba(255,255,255,0.85);">GitHub Pages (GitHub Inc.)</strong> — our website is hosted on GitHub Pages. GitHub may collect technical data (IP address, request logs) as outlined in <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub's Privacy Statement</a>. We do not control this data collection.
+        </li>
+      </ul>
+
+      <h2>5. Data Storage and Security</h2>
+      <p>We do not operate a database or server that stores personal data collected through this website. Contact information shared via WhatsApp or email is retained only within those respective communication platforms and in our internal correspondence.</p>
+      <p>We take reasonable precautions to ensure your data is handled securely; however, no method of transmission over the internet is 100% secure. We encourage you to exercise caution when sharing sensitive personal information online.</p>
+
+      <h2>6. Your Rights Under the Kenya Data Protection Act 2019</h2>
+      <p>If you are located in Kenya, you have rights under the <strong style="color:rgba(255,255,255,0.85);">Kenya Data Protection Act, 2019 (No. 24 of 2019)</strong>, which gives you the right to:</p>
+      <ul>
+        <li><strong style="color:rgba(255,255,255,0.85);">Access</strong> — request a copy of any personal data we hold about you.</li>
+        <li><strong style="color:rgba(255,255,255,0.85);">Rectification</strong> — request that we correct inaccurate or incomplete data.</li>
+        <li><strong style="color:rgba(255,255,255,0.85);">Erasure</strong> — request that we delete your personal data, where we have no lawful reason to retain it.</li>
+        <li><strong style="color:rgba(255,255,255,0.85);">Objection</strong> — object to processing of your data in certain circumstances.</li>
+        <li><strong style="color:rgba(255,255,255,0.85);">Complaint</strong> — lodge a complaint with the <a href="https://www.odpc.go.ke" target="_blank" rel="noopener">Office of the Data Protection Commissioner (ODPC)</a> if you believe your rights have been violated.</li>
+      </ul>
+      <p>To exercise any of these rights, please contact us using the details in Section 7 below. We will respond within a reasonable time and in compliance with applicable law.</p>
+
+      <h2>7. Children's Privacy</h2>
+      <p>Our website is not directed at children under the age of 18. We do not knowingly collect personal data from minors. If you believe we have inadvertently collected information from a child, please contact us and we will delete it promptly.</p>
+
+      <h2>8. Links to External Websites</h2>
+      <p>Our website may contain links to external sites (press coverage, award bodies, etc.). We are not responsible for the privacy practices or content of those external sites. We encourage you to review the privacy policies of any external site you visit.</p>
+
+      <h2>9. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. The "Last updated" date at the top of this page will reflect any changes. Continued use of our website after changes are posted constitutes your acceptance of the revised policy.</p>
+
+      <h2>10. Contact Us</h2>
+      <p>For any privacy-related questions, requests, or concerns, please contact us:</p>
+      <ul>
+        <li><strong style="color:rgba(255,255,255,0.85);">Email:</strong> <a href="mailto:info@greatlakesfeeds.com">info@greatlakesfeeds.com</a></li>
+        <li><strong style="color:rgba(255,255,255,0.85);">WhatsApp:</strong> <a href="https://wa.me/254731800767" target="_blank" rel="noopener">+254 731 800 767</a></li>
+        <li><strong style="color:rgba(255,255,255,0.85);">Address:</strong> V4XF+PQ Kadimu, Kenya</li>
+      </ul>
+      <p>We are committed to addressing your concerns in good faith and in accordance with Kenyan law.</p>
+
+    </div>
+  </div>
+</main>
+
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer style="background:var(--color-dark);border-top:1px solid rgba(var(--color-gold-rgb),0.1);padding:3.5rem 1.5rem 2rem;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1.6fr;gap:3rem;margin-bottom:3rem;" class="footer-grid">
+
+      <!-- Brand -->
+      <div>
+        <div style="margin-bottom:1rem;">
+          <img src="brand_assets/ Greatlakes Feeds logo.png" alt="GreatLakes Feeds" style="height:96px;width:auto;">
+        </div>
+        <p style="font-size:0.85rem;line-height:1.8;color:rgba(255,255,255,0.45);max-width:230px;margin-bottom:1.4rem;">
+          Nourishing communities and empowering farmers through high-quality, locally-sourced feeds around Lake Victoria.
+        </p>
+        <div style="display:flex;gap:0.6rem;">
+          <a href="#" aria-label="LinkedIn" style="width:33px;height:33px;border-radius:50%;border:1px solid rgba(var(--color-gold-rgb),0.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.45);text-decoration:none;transition:border-color 0.2s,color 0.2s,transform 0.22s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.borderColor='var(--color-gold)';this.style.color='var(--color-gold)';this.style.transform='scale(1.12)'" onmouseout="this.style.borderColor='rgba(212,167,35,0.2)';this.style.color='rgba(255,255,255,0.45)';this.style.transform='scale(1)'"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="Instagram" style="width:33px;height:33px;border-radius:50%;border:1px solid rgba(var(--color-gold-rgb),0.2);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.45);text-decoration:none;transition:border-color 0.2s,color 0.2s,transform 0.22s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.borderColor='var(--color-gold)';this.style.color='var(--color-gold)';this.style.transform='scale(1.12)'" onmouseout="this.style.borderColor='rgba(212,167,35,0.2)';this.style.color='rgba(255,255,255,0.45)';this.style.transform='scale(1)'"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://wa.me/254731800767?text=Hello%20GreatLakes%20Feeds!%20I%20visited%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20products%20and%20services." aria-label="WhatsApp" target="_blank" style="width:33px;height:33px;border-radius:50%;border:1px solid rgba(37,211,102,0.25);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.45);text-decoration:none;transition:border-color 0.2s,color 0.2s,transform 0.22s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.borderColor='#25D366';this.style.color='#25D366';this.style.transform='scale(1.12)'" onmouseout="this.style.borderColor='rgba(37,211,102,0.25)';this.style.color='rgba(255,255,255,0.45)';this.style.transform='scale(1)'"><svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 style="font-family:'Inter',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-gold);margin-bottom:1.2rem;">Quick Links</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
+          <li><a href="index.html#products" style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Our Products</a></li>
+          <li><a href="index.html#about" style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">About Us</a></li>
+          <li><a href="index.html#values" style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Our Values</a></li>
+          <li><a href="index.html#team" style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Our Team</a></li>
+          <li><a href="index.html#contact" style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Products -->
+      <div>
+        <h4 style="font-family:'Inter',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-gold);margin-bottom:1.2rem;">Our Feeds</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.6rem;">
+          <li><a href="index.html#products" style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Fish Feeds</a></li>
+          <li><a href="index.html#products" style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Poultry Feeds</a></li>
+          <li><a href="index.html#products" style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Livestock Feeds</a></li>
+          <li><a href="index.html#contact" style="font-size:0.85rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Farmer Training</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 style="font-family:'Inter',sans-serif;font-weight:700;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-gold);margin-bottom:1.2rem;">Get In Touch</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:0.7rem;">
+          <li style="display:flex;align-items:flex-start;gap:0.5rem;">
+            <svg width="13" height="13" fill="none" style="stroke:rgba(var(--color-gold-rgb),0.6);stroke-width:2;flex-shrink:0;margin-top:3px;" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.38 2 2 0 0 1 3.58 1.2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6 6l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="https://wa.me/254731800767?text=Hello%20GreatLakes%20Feeds!%20I%20visited%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20products%20and%20services." target="_blank" style="font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">+254 731 800 767 (WhatsApp)</a>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.5rem;">
+            <svg width="13" height="13" fill="none" style="stroke:rgba(var(--color-gold-rgb),0.6);stroke-width:2;flex-shrink:0;margin-top:3px;" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@greatlakesfeeds.com" style="font-size:0.82rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">info@greatlakesfeeds.com</a>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.5rem;">
+            <svg width="13" height="13" fill="none" style="stroke:rgba(var(--color-gold-rgb),0.6);stroke-width:2;flex-shrink:0;margin-top:3px;" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span style="font-size:0.82rem;color:rgba(255,255,255,0.5);">V4XF+PQ Kadimu, Kenya</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.06);padding-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+      <p style="font-size:0.76rem;color:rgba(255,255,255,0.28);">&copy; 2026 GreatLakes Feeds. All rights reserved.</p>
+      <div style="display:flex;align-items:center;gap:1.2rem;flex-wrap:wrap;">
+        <a href="privacy-policy.html" style="font-size:0.72rem;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.55)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Privacy Policy</a>
+        <span style="font-size:0.72rem;color:rgba(255,255,255,0.12);">·</span>
+        <a href="terms.html" style="font-size:0.72rem;color:rgba(255,255,255,0.25);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='rgba(255,255,255,0.55)'" onmouseout="this.style.color='rgba(255,255,255,0.25)'">Terms of Use</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<style>
+  @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr!important}}
+  @media(max-width:480px){.footer-grid{grid-template-columns:1fr!important}}
+</style>
+
+</body>
+</html>
