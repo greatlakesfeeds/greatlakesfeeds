@@ -579,45 +579,61 @@
 
 
 <!-- ═══════════════ TRAINING BANNER ═══════════════ -->
-<section class="noise" style="position:relative;overflow:hidden;padding:0;">
-  <div style="position:relative;height:520px;">
-    <img src="Greatlakes Team Picture.jpg" alt="GreatLakes Feeds farmer training" style="width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;">
-    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(var(--color-dark-rgb),0.88) 0%,rgba(var(--color-dark-rgb),0.55) 55%,rgba(var(--color-dark-rgb),0.2) 100%);"></div>
-    <div style="position:absolute;inset:0;background:rgba(var(--color-gold-rgb),0.04);mix-blend-mode:multiply;"></div>
-    <div style="position:absolute;inset:0;display:flex;align-items:center;z-index:3;padding:2rem 1.5rem;">
-      <div style="max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;" class="training-grid">
-        <div>
-          <div class="label-pill label-pill-light" style="margin-bottom:1.25rem;">Farmer Training &amp; Support</div>
-          <h2 style="font-weight:800;font-size:clamp(2rem,4.5vw,3.2rem);letter-spacing:-0.025em;color:#fff;line-height:1.1;margin-bottom:1.25rem;">
-            We Go Beyond<br>
-            <span style="color:var(--color-gold);">the Feed Bag</span>
-          </h2>
-          <p style="font-size:0.97rem;line-height:1.85;color:rgba(255,255,255,0.7);margin-bottom:1.75rem;max-width:420px;">
-            Our technical support programmes equip farmers with the knowledge, skills, and confidence to run profitable, sustainable operations — from pond preparation to market access.
-          </p>
-          <a href="https://wa.me/254731800767?text=Hello%20GreatLakes%20Feeds!%20I%20visited%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20products%20and%20services." target="_blank" class="btn-gold">
-            Join a Training Programme
-          </a>
+<section class="noise" style="position:relative;overflow:hidden;">
+  <img src="Greatlakes Team Picture.jpg" alt="GreatLakes Feeds farmer training" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;z-index:0;">
+  <!-- Base dark overlay — 68% to make image a cinematic backdrop -->
+  <div style="position:absolute;inset:0;background:rgba(8,12,7,0.68);z-index:1;"></div>
+  <!-- Directional gradient: heavier on right where text sits -->
+  <div style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(8,12,7,0.3) 0%,rgba(8,12,7,0.55) 50%,rgba(8,12,7,0.78) 100%);z-index:2;"></div>
+  <!-- Subtle gold warmth -->
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 15% 50%,rgba(212,167,35,0.07) 0%,transparent 65%);z-index:3;pointer-events:none;"></div>
+
+  <div style="position:relative;z-index:4;padding:96px 1.5rem;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;" class="training-grid">
+
+      <!-- Left: heading + body + CTA -->
+      <div>
+        <div class="label-pill label-pill-light" style="margin-bottom:1.4rem;">Farmer Training &amp; Support</div>
+        <h2 style="font-weight:800;font-size:clamp(2.2rem,4.8vw,3.4rem);letter-spacing:-0.025em;color:#fff;line-height:1.08;margin-bottom:1.4rem;text-shadow:0 2px 20px rgba(8,12,7,0.7),0 1px 4px rgba(8,12,7,0.9);">
+          We Go Beyond<br>
+          <span style="color:var(--color-gold);">the Feed Bag</span>
+        </h2>
+        <p style="font-size:1rem;line-height:1.9;color:rgba(255,255,255,0.75);margin-bottom:2rem;max-width:420px;text-shadow:0 1px 8px rgba(8,12,7,0.6);">
+          Our technical support programmes equip farmers with the knowledge, skills, and confidence to run profitable, sustainable operations — from pond preparation to market access.
+        </p>
+        <a href="https://wa.me/254731800767?text=Hello%20GreatLakes%20Feeds!%20I%20visited%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20products%20and%20services." target="_blank" class="btn-gold" style="font-size:0.95rem;padding:0.8rem 2rem;">
+          Join a Training Programme
+        </a>
+      </div>
+
+      <!-- Right: programme rows with gold left accent -->
+      <div style="display:flex;flex-direction:column;gap:0.75rem;">
+
+        <div style="border-left:3px solid var(--color-gold);padding:1.25rem 1.5rem;background:rgba(8,12,7,0.45);border-radius:0 12px 12px 0;">
+          <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:#fff;margin-bottom:0.4rem;letter-spacing:-0.01em;text-shadow:0 1px 8px rgba(8,12,7,0.7);">Hands-on Workshops</div>
+          <div style="font-size:0.86rem;line-height:1.72;color:var(--color-soft-gold);text-shadow:0 1px 6px rgba(8,12,7,0.6);">Feed management, pond prep, and yield optimisation</div>
         </div>
-        <div style="display:flex;flex-direction:column;">
-          <div style="border-top:1px solid rgba(255,255,255,0.14);padding:1.3rem 0;">
-            <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:#fff;margin-bottom:0.35rem;letter-spacing:-0.01em;">Hands-on Workshops</div>
-            <div style="font-size:0.84rem;line-height:1.7;color:rgba(255,255,255,0.52);">Feed management, pond prep, and yield optimisation</div>
-          </div>
-          <div style="border-top:1px solid rgba(255,255,255,0.14);padding:1.3rem 0;">
-            <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:#fff;margin-bottom:0.35rem;letter-spacing:-0.01em;">Women &amp; Youth Empowerment</div>
-            <div style="font-size:0.84rem;line-height:1.7;color:rgba(255,255,255,0.52);">Business skills, market access, income generation</div>
-          </div>
-          <div style="border-top:1px solid rgba(255,255,255,0.14);border-bottom:1px solid rgba(255,255,255,0.14);padding:1.3rem 0;">
-            <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:#fff;margin-bottom:0.35rem;letter-spacing:-0.01em;">NGO &amp; Co-op Partnerships</div>
-            <div style="font-size:0.84rem;line-height:1.7;color:rgba(255,255,255,0.52);">Subsidised feeds for underserved farming communities</div>
-          </div>
+
+        <div style="border-left:3px solid var(--color-gold);padding:1.25rem 1.5rem;background:rgba(8,12,7,0.45);border-radius:0 12px 12px 0;">
+          <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:#fff;margin-bottom:0.4rem;letter-spacing:-0.01em;text-shadow:0 1px 8px rgba(8,12,7,0.7);">Women &amp; Youth Empowerment</div>
+          <div style="font-size:0.86rem;line-height:1.72;color:var(--color-soft-gold);text-shadow:0 1px 6px rgba(8,12,7,0.6);">Business skills, market access, income generation</div>
         </div>
+
+        <div style="border-left:3px solid var(--color-gold);padding:1.25rem 1.5rem;background:rgba(8,12,7,0.45);border-radius:0 12px 12px 0;">
+          <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:#fff;margin-bottom:0.4rem;letter-spacing:-0.01em;text-shadow:0 1px 8px rgba(8,12,7,0.7);">NGO &amp; Co-op Partnerships</div>
+          <div style="font-size:0.86rem;line-height:1.72;color:var(--color-soft-gold);text-shadow:0 1px 6px rgba(8,12,7,0.6);">Subsidised feeds for underserved farming communities</div>
+        </div>
+
       </div>
     </div>
   </div>
 </section>
-<style>@media(max-width:768px){.training-grid{grid-template-columns:1fr!important}.training-grid>div:last-child{display:none!important}}</style>
+<style>
+  @media(max-width:768px){
+    .training-grid{grid-template-columns:1fr!important;gap:2.5rem!important}
+    .training-grid>div:last-child{display:flex!important}
+  }
+</style>
 
 
 <!-- ═══════════════ GALLERY ═══════════════ -->
