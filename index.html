@@ -126,6 +126,35 @@
 </head>
 <body>
 
+<!-- ═══════════════ ANNOUNCEMENT BANNER ═══════════════ -->
+<div style="background: var(--color-dark); color: #fff; padding: 0.75rem 1.5rem; text-align: center; position: relative; z-index: 60; display: flex; justify-content: center; align-items: center; gap: 1rem; flex-wrap: wrap; border-bottom: 2px solid var(--color-gold);">
+  <span style="font-weight: 600; font-size: 0.95rem; letter-spacing: 0.01em;">
+    <span style="color: var(--color-gold);">🏆 VOTE NOW!</span> We've been nominated for the <strong style="color: #fff;">Digital Transformation & Innovation Award</strong>.
+  </span>
+  <a href="#vote" onclick="document.getElementById('award-modal').style.display='flex'; return false;" class="btn-gold" style="padding: 0.4rem 1.2rem; font-size: 0.85rem; border-radius: 100px;">
+    View Flyer & Vote
+  </a>
+</div>
+
+<!-- ═══════════════ AWARD MODAL ═══════════════ -->
+<div id="award-modal" style="display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(8,12,7,0.85); align-items: center; justify-content: center; padding: 1rem; backdrop-filter: blur(4px);" onclick="this.style.display='none'">
+  <div style="position: relative; max-width: 500px; width: 100%; background: #fff; border-radius: 16px; padding: 0.5rem; box-shadow: 0 24px 60px rgba(0,0,0,0.6); animation: glf-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);" onclick="event.stopPropagation()">
+    <button onclick="document.getElementById('award-modal').style.display='none'" style="position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.5); color: #fff; border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; z-index: 10; transition: background 0.2s;" onmouseover="this.style.background='var(--color-dark)'" onmouseout="this.style.background='rgba(0,0,0,0.5)'">&times;</button>
+    <img src="brand_assets/greatfeedsaward.jpeg" alt="GreatLakes Fish Feeds Limited - Nominated for Digital Transformation & Innovation Award" style="width: 100%; height: auto; display: block; border-radius: 12px;">
+    <div style="text-align: center; margin-top: -3.5rem; position: relative; z-index: 5; padding-bottom: 1.5rem;">
+      <a href="https://www.kncci-acis.tuqiohub.africa" target="_blank" rel="noopener" class="btn-gold" style="box-shadow: 0 10px 30px rgba(212,167,35,0.6); padding: 0.8rem 2rem; font-size: 1rem;">
+        Click Here to Vote
+      </a>
+    </div>
+  </div>
+</div>
+<style>
+  @keyframes glf-pop {
+    0% { transform: scale(0.95); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+</style>
+
 <!-- ═══════════════ NAVBAR ═══════════════ -->
 <header id="top" style="
   position: sticky; top: 0; z-index: 50;
