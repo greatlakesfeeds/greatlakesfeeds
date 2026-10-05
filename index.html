@@ -126,8 +126,9 @@
 </head>
 <body>
 
+<div style="position: sticky; top: 0; z-index: 60; display: flex; flex-direction: column; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
 <!-- ═══════════════ ANNOUNCEMENT BANNER ═══════════════ -->
-<div style="background: var(--color-dark); color: #fff; padding: 0.75rem 1.5rem; text-align: center; position: relative; z-index: 60; display: flex; justify-content: center; align-items: center; gap: 1rem; flex-wrap: wrap; border-bottom: 2px solid var(--color-gold);">
+<div style="background: var(--color-dark); color: #fff; padding: 0.75rem 1.5rem; text-align: center; position: relative; display: flex; justify-content: center; align-items: center; gap: 1rem; flex-wrap: wrap; border-bottom: 2px solid var(--color-gold);">
   <span style="font-weight: 600; font-size: 0.95rem; letter-spacing: 0.01em;">
     <span style="color: var(--color-gold);">🏆 VOTE NOW!</span> We've been nominated for the <strong style="color: #fff;">Digital Transformation & Innovation Award</strong>.
   </span>
@@ -157,10 +158,9 @@
 
 <!-- ═══════════════ NAVBAR ═══════════════ -->
 <header id="top" style="
-  position: sticky; top: 0; z-index: 50;
+  position: relative; z-index: 50;
   background: #fff;
   border-bottom: 1px solid rgba(var(--color-dark-rgb),0.07);
-  box-shadow: 0 1px 14px rgba(var(--color-dark-rgb),0.06);
 ">
   <div style="max-width:1200px;margin:0 auto;padding:0 1.5rem;height:76px;display:flex;align-items:center;justify-content:space-between;gap:2rem;">
 
@@ -195,28 +195,42 @@
   <!-- Gold tint radial -->
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 30% 50%,rgba(var(--color-gold-rgb),0.12) 0%,transparent 60%);z-index:2;pointer-events:none;"></div>
 
-  <div class="hero-text-wrap" style="max-width:900px;margin:0 auto;width:100%;padding:120px 1.5rem 100px;text-align:center;position:relative;z-index:3;">
-    <div class="label-pill label-pill-light" style="margin-bottom:1.5rem;">East Africa · Lake Victoria Region</div>
-    <h1 style="font-weight:800;font-size:clamp(2.8rem,6vw,4.4rem);line-height:1.08;letter-spacing:-0.02em;color:#fff;margin-bottom:1.4rem;text-shadow:0 2px 20px rgba(8,12,7,0.6),0 1px 4px rgba(8,12,7,0.9);">
-      Nourishing<br>
-      <span style="color:var(--color-gold);">Communities,</span><br>
-      Empowering Farmers
-    </h1>
-    <p style="font-size:1.05rem;line-height:1.85;color:rgba(255,255,255,0.68);max-width:520px;margin:0 auto 2.4rem;text-shadow:0 1px 10px rgba(8,12,7,0.7);">
-      High-quality fish, poultry, and livestock feeds crafted from 100% locally sourced ingredients — strengthening livelihoods around Lake Victoria since day one.
-    </p>
-    <div style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;justify-content:center;">
-      <a href="#products" class="btn-gold">
-        Explore Our Feeds
+  <div class="hero-content-grid" style="max-width:1200px;margin:0 auto;width:100%;padding:120px 1.5rem 100px;position:relative;z-index:3;display:grid;grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:center;">
+    <div class="hero-text-wrap" style="text-align:left;position:relative;isolation:isolate;">
+      <div class="label-pill label-pill-light" style="margin-bottom:1.5rem;">East Africa · Lake Victoria Region</div>
+      <h1 style="font-weight:800;font-size:clamp(2.8rem,5.5vw,4.4rem);line-height:1.08;letter-spacing:-0.02em;color:#fff;margin-bottom:1.4rem;text-shadow:0 2px 20px rgba(8,12,7,0.6),0 1px 4px rgba(8,12,7,0.9);">
+        Nourishing<br>
+        <span style="color:var(--color-gold);">Communities,</span><br>
+        Empowering Farmers
+      </h1>
+      <p style="font-size:1.05rem;line-height:1.85;color:rgba(255,255,255,0.68);max-width:520px;margin-bottom:2.4rem;text-shadow:0 1px 10px rgba(8,12,7,0.7);">
+        High-quality fish, poultry, and livestock feeds crafted from 100% locally sourced ingredients — strengthening livelihoods around Lake Victoria since day one.
+      </p>
+      <div class="hero-btns" style="display:flex;gap:1rem;flex-wrap:wrap;align-items:center;">
+        <a href="#products" class="btn-gold">
+          Explore Our Feeds
+        </a>
+        <a href="#about" class="btn-ghost-light">Our Mission</a>
+      </div>
+    </div>
+    <div class="hero-award-wrap" style="position:relative;display:flex;justify-content:center;">
+      <a href="#vote" onclick="document.getElementById('award-modal').style.display='flex'; return false;" style="display:block;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.transform='scale(1.03) rotate(2deg)'" onmouseout="this.style.transform='scale(1) rotate(0)'">
+        <img src="brand_assets/greatfeedsaward.jpeg" alt="Vote for GreatLakes Feeds" style="width:100%;max-width:420px;border-radius:12px;box-shadow:0 24px 80px rgba(0,0,0,0.6);border:2px solid rgba(212,167,35,0.5);">
       </a>
-      <a href="#about" class="btn-ghost-light">Our Mission</a>
+      <div style="position:absolute;bottom:-1.5rem;right:-1rem;background:var(--color-gold);color:var(--color-dark);font-weight:800;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.6rem 1.2rem;border-radius:100px;box-shadow:0 10px 30px rgba(212,167,35,0.4);transform:rotate(-5deg);pointer-events:none;animation:glf-pulse 2.4s infinite;">Vote Now!</div>
     </div>
   </div>
   <style>
+    @media(max-width:960px){
+      .hero-content-grid{grid-template-columns:1fr!important;text-align:center!important;gap:3rem!important;padding-top:80px!important;}
+      .hero-text-wrap{text-align:center!important;}
+      .hero-text-wrap p{margin-left:auto!important;margin-right:auto!important;}
+      .hero-btns{justify-content:center!important;}
+    }
     .hero-text-wrap::before {
       content: '';
       position: absolute;
-      inset: 0;
+      inset: -50px;
       background: radial-gradient(ellipse 70% 65% at 50% 50%, rgba(8,12,7,0.52) 0%, rgba(8,12,7,0.28) 45%, transparent 72%);
       pointer-events: none;
       z-index: -1;
